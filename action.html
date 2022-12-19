@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>work1</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="col-xs-12 col-sm-12 col-md-12 col-lg-12 h1">Продукт</h1>
+    <div id="app">
+        <form>
+            <div>
+                <p>Введите название товара:</p>
+                <input placeholder="Введите название товара" type="text col-md-3" v-model="name" class="text col-md-3" required />
+            </div><br><br>
+            <div>
+                <p>Введите дату получения:</p>
+                <input placeholder="Введите дату получения товара" type="date" v-model="date" class="text col-md-3" v-model="date" required />
+            </div><br><br>
+            <div>
+                <p>Количество товара:</p>
+                <input placeholder="Количество товара" type="number" v-model="countProduct" class="text col-md-3" required />
+            </div><br><br>
+            <div>
+                <p>Цена за единицу товара:</p>
+                <input placeholder="Цена за единицу товара" type="number" v-model="priceOnProduct" class="text col-md-3" required />
+            </div>
+            <br>
+            <button type="submit" onclick="return false" @click="addProduct" class="btn">Добавить</button>
+        </form>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Серииный номер</th>
+                    <th>Название товара</th>
+                    <th>Дата получения</th>
+                    <th>Кол-во товара</th>
+                    <th>цена за единицу</th>
+                    <th>Полная цена</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(product, index) in products" :key="index">
+                    <td>{{ index + 1 }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.date }}</td>
+                    <td>{{ product.countProduct }}</td>
+                    <td>{{ product.priceOnProduct }}</td>
+                    <td>{{ product.priceOnProduct * product.countProduct }}</td>
+                    <td><button @click="removeProduct(index)">Удалить</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Итого без налоговых вычетов: {{ totalWithoutTax }}</p>
+        <p>Итог c налоговыми вычетами : {{ totalWithTax }}</p>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+  
+  <script src="app.js"></script>
+</body>
+</html>

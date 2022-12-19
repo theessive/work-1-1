@@ -1,0 +1,43 @@
+
+
+.h1{
+    color:rgb(217, 241, 241);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.col-md-2{
+    margin: 10px;
+}
+#app p{
+    margin: 0;
+    color:aliceblue
+}
+body{
+    background-color: rgb(192, 19, 65);
+    padding-top: 10%;
+    padding: 2%;
+}
+.btn{
+    border: none;
+    position: relative;
+    left: 50%;
+    background-color: rgb(161, 159, 196);
+    border-radius: 20px;
+    height: 50px;
+    margin: 15px 0 15px;
+    transform: translate(-50%, 0);
+
+}
+.text{
+    border-radius: 15px;
+    border: none;
+    height: 25px;
+}
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 50%;
+
+}
